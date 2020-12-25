@@ -68,8 +68,10 @@ def func(row):
         return row['price']
     elif row['price'].find('tỷ') != -1 :
         return float(row['price'].split(' ')[0])*1000
-    else:
+    elif row['price'].find('triệu/m²') != -1:
         return float(row['price'].split(' ')[0])*row['area']
+    else:
+        return float(row['price'].split(' ')[0])
 
 def findWard(x):
     if len(str(x)) == 3:
