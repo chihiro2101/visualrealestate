@@ -67,6 +67,7 @@ def func(row):
     if len(str(row['price'])) == 3 or row['price'] == 'Thỏa thuận':
         return row['price']
     elif row['price'].find('tỷ') != -1 :
+        import pdb; pdb.set_trace()
         return float(row['price'].split(' ')[0])*1000
     elif row['price'].find('triệu/m²') != -1:
         return float(row['price'].split(' ')[0])*row['area']
@@ -148,6 +149,9 @@ def preprocess(data):
 
 data1 = pd.read_json('data1_4000.json', orient='records', dtype= {"id" : "string", "bedrooms": "int", "toilets":"int"})
 data2 = pd.read_json('data4000_7500.json', orient='records', dtype= {"id" : "string", "bedrooms": "int", "toilets":"int"})
+
+# data1 = pd.read_json('data1_4000.json', orient='records')
+# data2 = pd.read_json('data4000_7500.json', orient='records')
 
 df1 = preprocess(data1) 
 df2 = preprocess(data2)

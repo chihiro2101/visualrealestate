@@ -14,8 +14,8 @@ import warnings; warnings.filterwarnings(action='once')
 import random
 import math
 
-# df = pd.read_csv("dfBDS.csv", dtype = {"id":"string", "month": "string"})
-df = pd.read_csv("dfBDS.csv")
+df = pd.read_csv("dfBDS.csv", dtype = {"id":"str", "month": "str"})
+# df = pd.read_csv("dfBDS.csv", dtype = {"id":"str"})
 percentage_of_null = df.isnull().sum() * 100 / len(df)
 print(percentage_of_null)
 
@@ -26,8 +26,7 @@ newdf = df.drop('law_doc', axis=1)
 newdf = newdf[newdf['price'].notnull()]
 newdf = newdf.loc[(newdf['price'] != 'Thỏa thuận')]
 newdf['price'] = newdf['price'].apply(lambda x : float(x))
-newdf = newdf.loc[(newdf['price'] < 10000)]
-
+newdf = newdf.loc[(newdf['price'] <5001) & (newdf['price'] >300)]
 newdf = newdf.loc[(newdf['square'] < 500)]
 newdf = newdf.loc[(newdf['bedrooms'] < 5)]
 newdf = newdf.loc[(newdf['bathrooms'] < 5)]

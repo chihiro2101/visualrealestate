@@ -3,8 +3,8 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
 
-# dfBDS = pd.read_csv("newdfBDS.csv", dtype = {"id":"string", "month": "string"})
-dfBDS = pd.read_csv("newdfBDS.csv")
+dfBDS = pd.read_csv("newdfBDS.csv", dtype = {"id":"str", "month": "str"})
+# dfBDS = pd.read_csv("newdfBDS.csv")
 
 # dfBDS_copy = dfBDS.copy()
 # train_set = dfBDS_copy.sample(frac=0.8, random_state=1)
